@@ -1,0 +1,11 @@
+{
+  "introduction":"Hello! I'm a passionate full-stack programmer with experience in web application development using technologies like Next.js, SvelteKit, and Laravel. My focus has been on creating exceptional and functional user experiences by combining the power of front-end and back-end programming.",
+  "home": "Home",
+  "about": "About Me",
+  "portfolio": "Portfolio",
+  "contact": "Contact",
+  "extra": "Miscellaneous",
+  "more-about-me": "More about me",
+  "language": "Language",
+  "theme": "Theme"
+}

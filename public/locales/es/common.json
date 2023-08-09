@@ -1,0 +1,11 @@
+{
+  "introduction": "¡Hola! Soy un apasionado programador full-stack con experiencia en el desarrollo de aplicaciones web utilizando tecnologías como Next.js, SvelteKit y Laravel. Mi enfoque se ha centrado en crear experiencias de usuario excepcionales y funcionales, combinando el poder de la programación front-end y back-end.",
+  "home":"Inicio",
+  "about":"Acerca de mi",
+  "portfolio": "Portafolio",
+  "contact": "Contacto",
+  "extra": "Miscelánea",
+  "more-about-me": "Ver CV completo",
+  "language": "Idioma",
+  "theme": "Tema Visual"
+}

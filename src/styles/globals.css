@@ -3,25 +3,47 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  
+  --light-page: #f7f7f7;
+  --light-accent: #5B8041;
+  --light-navbar: #eeeeee;
+  --light-navbar-item: #cbcbcb;
+  --light-navbar-item-hover: #b5a082;
+  --light-text: rgb(70, 88, 90);
+  --light-section: #f7f7f7;
+  --light-button: #5B8041;
+  --light-button-text: #fff;
+  --light-menu-item: #f1f1f1;
+  --light-menu-item-hover: #dcdcdc;
+
+  --dark-page: #101010;
+  --dark-accent:  #b92121;
+  --dark-navbar: #101010;
+  --dark-navbar-item: #202020;
+  --dark-navbar-item-hover: #303030;
+  --dark-text: #fff;
+  --dark-section: #101010;
+  --dark-button: #b92121;
+  --dark-button-text: #fff;
+  --dark-menu-item: #202020;
+  --dark-menu-item-hover: #303030;
+
+  --bg: var(--light-page);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+    --bg: var(--dark-page);
   }
 }
-
+*{
+  box-sizing: border-box;
+}
+html{
+  scroll-behavior: smooth;
+}
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  cursor: none;
+  background: var(--bg);
 }

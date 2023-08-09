@@ -1,6 +1,5 @@
 
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
-import Hero from '@/components/sections/Hero'
 
 export async function getStaticProps({locale}:{ locale:any }) {
   return {
@@ -11,6 +10,6 @@ export async function getStaticProps({locale}:{ locale:any }) {
     },
   }
 }
-export default function Home() {
-  return <Hero/>
+export default function About() {
+  return <>Hola mundo</>
 }
