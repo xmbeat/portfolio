@@ -20,11 +20,12 @@ const Popup: React.FC<PopupProps> = ({ children, isOpen, onClose, desiredAlign =
     bottom: 0,
     width: 0,
     height: 0,})
+  const [isMobile, setIsMobile] = useState(false)
   
   const popupStyle = useMemo(()=>{
     let style:any = {}
     if (!popupRef.current) return style;
-    if (window.innerWidth > 600){
+    if (!isMobile){
       const wrapperRect = popupRef.current.getBoundingClientRect()
       
       const spaceAbove = parentRect.top
@@ -68,13 +69,13 @@ const Popup: React.FC<PopupProps> = ({ children, isOpen, onClose, desiredAlign =
       style.position = 'relative'; 
       style.maxHeight = '80%';
       if (desiredWidth == 'fit-content' || desiredWidth == 'same') {
-        style.maxWidth = '80%';
+        style.maxWidth = '90%';
       } else {
         style.width = desiredWidth
       }
     }
     return style
-  },[parentRect, desiredAlign, desiredPosition, desiredWidth, margin])
+  },[parentRect, desiredAlign, desiredPosition, desiredWidth, margin, isMobile])
 
   useEffect(()=>{
     if (!popupRef.current) return;
@@ -82,6 +83,11 @@ const Popup: React.FC<PopupProps> = ({ children, isOpen, onClose, desiredAlign =
     const rect = parent.getBoundingClientRect();
     setParentRect(rect)
   },[popupRef])
+
+  useEffect(()=>{
+    const width = window.innerWidth;
+    setIsMobile(width < 600);
+  }, [])
 
   useEffect(()=>{
     const clickHandler = (event:MouseEvent)=>{
@@ -100,13 +106,15 @@ const Popup: React.FC<PopupProps> = ({ children, isOpen, onClose, desiredAlign =
     }
   },[isOpen, onClose])
   
-  return <div className='fixed' ref={popupRef} style={popupStyle}>
-    <AnimatePresence>
-      {isOpen && <motion.div transition={{ease:'easeInOut', duration: 0.2}} initial={{y: -30, opacity:0}} animate={{y: 0, opacity: 1}} exit={{y:-30, opacity: 0}}>
-        {children}
-      </motion.div>}
+  return <div className={`fixed ${isMobile?'inset-0':''}`}ref={popupRef}>
+    <div className='fixed' style={popupStyle}>
+      <AnimatePresence>
+        {isOpen && <motion.div transition={{ease:'easeInOut', duration: 0.2}} initial={{y: -30, opacity:0}} animate={{y: 0, opacity: 1}} exit={{y:-30, opacity: 0}}>
+          {children}
+        </motion.div>}
 
-    </AnimatePresence>
+      </AnimatePresence>
+    </div>
   </div>
 }
 export default Popup

@@ -11,6 +11,7 @@ import { useTranslation } from "next-i18next";
 import Popup from '../Popup'; 
 import InlineOptions from "../InlineOptions";
 import { useTheme } from "next-themes";
+import StarBackground from "../backgrounds/StarBackground";
 
 const poppins = Poppins({ weight: ['400', '500', '700', '900'], style: ['italic', 'normal'],preload: true, subsets:['latin']})
 
@@ -93,6 +94,9 @@ export default function MainLayout(props: MainLayoutProps) {
   return (
     <section className={`${poppins.className} text-light-text dark:text-dark-text tracking-wider`}>
       <Cursor/>
+      <div className="fixed inset-0">
+        {/* <StarBackground branches={3} count={100000}/> */}
+      </div> 
       <div className="pb-12 md:pb-0 overflow-hidden bg-light-page dark:bg-dark-page">
         {props.children}
       </div>
